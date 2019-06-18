@@ -1,16 +1,16 @@
 // App requirements
-var express = require("express");
-var mongoose = require("mongoose");
-var axios = require("axios");
-var cheerio = require("cheerio");
-var exphbs = require("express-handlebars");
+let express = require("express");
+let mongoose = require("mongoose");
+let axios = require("axios");
+let cheerio = require("cheerio");
+let exphbs = require("express-handlebars");
 
-var db = require("./models");
+let db = require("./models");
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-var PORT = process.env.PORT || 3000;
-var app = express();
+let PORT = process.env.PORT || 3000;
+let app = express();
 
 app.engine('handlebars', exphbs({ defaultLayout: "main" }));
 app.set('view engine', 'handlebars');
@@ -34,10 +34,10 @@ app.get('/', function (req, res) {
 
 app.get('/articles', function (req, res) {
   axios.get('https://www.ign.com/articles?tags=news').then(function (response) {
-    var $ = cheerio.load(response.data);
+    let $ = cheerio.load(response.data);
 
     $($(".listElmnt").get().reverse()).each(function (i, element) {
-      var result = {};
+      let result = {};
 
       result.title = $(element).find(".listElmnt-blogItem").find(".listElmnt-storyHeadline").text();
       result.summary = $(element).find(".listElmnt-blogItem").find("p").text().replace('Read More »', '');
