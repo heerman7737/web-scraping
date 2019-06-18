@@ -1,12 +1,13 @@
 
 
 body{
-    background-color: palevioletred;
-    color: aliceblue
+    background-color: white;
+    color: black
 }
-#header{
-    color:blue;
-    text-align: center
+header{
+    color:black;
+    text-align: center;
+    font-size: 100px
 }
 #scrapeButton{
 background-color: red;
@@ -19,5 +20,14 @@ background-color: red;
   font-size: 16px;
 }
 a{
-    color:white
+    color:black
 }
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
